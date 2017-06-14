@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     entry: [
         "script-loader!jquery/dist/jquery.min.js",
-        "script-loader!foundation-sites/dist/foundation.min.js",
+        "script-loader!foundation-sites/dist/js/foundation.min.js",
         "./app/app.jsx"
     ],
     externals: {
@@ -20,7 +20,7 @@ module.exports = {
         //new UglifyJSPlugin()
         new webpack.LoaderOptionsPlugin({
             options: {
-                context: '/', // <- putting this line right under "options" did the trick
+                context: '/', 
                 sassLoader: {
                     includePaths: [
                         path.resolve(__dirname, './node_modules/foundation-sites/scss'),
@@ -34,6 +34,10 @@ module.exports = {
         filename: "./public/bundle.js"
     },
     resolve: {
+        modules: [
+            path.join(__dirname,"app/components"),
+            "node_modules"
+        ],
         alias: {
             applicationStyles:path.resolve(__dirname, "app/styles/app.scss")
         },

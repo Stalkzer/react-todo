@@ -4,6 +4,7 @@ var React           = require("react"),
     // ES6 Syntax
     {Route, Router, IndexRoute, hashHistory} = require("react-router");
 
+    var TodoApp = require("TodoApp");
     //Load foundation
     // require("style-loader!css-loader!foundation-sites/dist/foundation.min.css");
     $(document).foundation();
@@ -12,6 +13,6 @@ var React           = require("react"),
     require("style-loader!css-loader!sass-loader!applicationStyles");
 
 ReactDOM.render(
-    <p>BoilerPlate 3 Project</p>,
+    <TodoApp/>,
     document.getElementById('app')
 );

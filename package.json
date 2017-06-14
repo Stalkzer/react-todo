@@ -38,7 +38,7 @@
     "react-addons-test-utils": "^0.14.7",
     "sass-loader": "^3.2.3",
     "script-loader": "^0.6.1",
-    "style-loader": "^0.13.0",
+    "style-loader": "^0.13.2",
     "uglifyjs-webpack-plugin": "^0.4.3",
     "webpack": "^2.6.1"
   }
