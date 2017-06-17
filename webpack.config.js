@@ -36,6 +36,7 @@ module.exports = {
     resolve: {
         modules: [
             path.join(__dirname,"app/components"),
+            path.join(__dirname,"app/api"),
             "node_modules"
         ],
         alias: {
