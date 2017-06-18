@@ -1,0 +1,36 @@
+.todo {
+    align-items: stretch;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 1rem;
+    transition: background .3s ease;
+
+    p, input {
+        margin:0;
+    }
+
+    > :first-child {
+        margin-right: 1rem;
+    }
+
+    &:hover {
+        background: #f0f0f0;
+    }
+}
+.todo__remove {
+    color:red;
+    font-size:1.5rem;
+}
+
+.todo__subtext {
+    color: #999;
+}
+
+.todo-completed {
+    .todo_text, .todo-subtext {
+        color: $light-color;
+        text-decoration: line-through; 
+    }
+}

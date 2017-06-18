@@ -46,17 +46,6 @@ module.exports = {
     },
     module: {
         rules: [
-            // {
-            //     test: /\.scss$/,
-            //     include: [
-            //     path.resolve(__dirname, "node_modules/foundation-sites/scss")
-            //     ],
-            //     use: ExtractTextPlugin.extract({
-            //     fallback: 'style-loader',
-            //         //resolve-url-loader may be chained before sass-loader if necessary
-            //     use: ['css-loader', 'sass-loader']
-            //     })
-            // },
             {
                 test: /\.jsx?$/,
                 include: [
