@@ -17,7 +17,7 @@ module.exports = {
             $: "jquery",
             jQuery:"jquery"
         }),
-        //new UglifyJSPlugin()
+        new UglifyJSPlugin(),
         new webpack.LoaderOptionsPlugin({
             options: {
                 context: '/', 
