@@ -1,7 +1,6 @@
 var React      = require("react"),
     uuid       = require("node-uuid"),
     moment     = require("moment"),
-    MaterialButton = require("MaterialUi"),
 
     TodoList   = require("TodoList"),
     AddTodo    = require("AddTodo"),
@@ -67,7 +66,6 @@ var TodoApp = React.createClass({
         var buttonClass = showCompleted ? "" : "hollow show_inactif";
         return (
             <div>
-                <MaterialButton/>
                 <h1 className="page-title text-center"> Todo App </h1>
                 <div className="row">
                   <div className="column small-centered small-11 medium-6 large-5">
