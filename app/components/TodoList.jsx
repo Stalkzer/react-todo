@@ -3,6 +3,8 @@ var React = require("react"),
     TransitionGroup  = require('react-transition-group/CSSTransitionGroup'),
     {TweenMax, Power2, TimelineLite} = require("gsap");
 
+    import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+
 
 var TodoList = React.createClass({
     render: function () {
@@ -20,16 +22,19 @@ var TodoList = React.createClass({
         };
         
         return (
-            <div className="list_container">
-                <TransitionGroup
-                transitionName="todo"
-                transitionEnterTimeout={300}
-                transitionLeaveTimeout={300}
-                transitionAppear={true}
-                transitionAppearTimeout={300}>
-                    {renderTodos()}
-                </TransitionGroup>
-            </div>
+                <div className="list_container">
+                    <MuiThemeProvider>
+                        <TransitionGroup
+                        transitionName="todo"
+                        transitionEnterTimeout={300}
+                        transitionLeaveTimeout={300}
+                        transitionAppear={true}
+                        transitionAppearTimeout={300}>
+                            {renderTodos()}
+                        </TransitionGroup>
+                    </MuiThemeProvider>
+
+                </div>
         )
     }
 });

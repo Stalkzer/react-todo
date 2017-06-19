@@ -1,12 +1,14 @@
 var React      = require("react"),
     uuid       = require("node-uuid"),
     moment     = require("moment"),
-
+    MaterialButton = require("MaterialUi"),
 
     TodoList   = require("TodoList"),
     AddTodo    = require("AddTodo"),
     TodoSearch = require("TodoSearch"),
     TodoAPI    = require("TodoAPI");
+    
+    import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
 var TodoApp = React.createClass({
     getInitialState: function () {
@@ -64,14 +66,17 @@ var TodoApp = React.createClass({
         var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
         var buttonClass = showCompleted ? "" : "hollow show_inactif";
         return (
-            <div >
+            <div>
+                <MaterialButton/>
                 <h1 className="page-title text-center"> Todo App </h1>
                 <div className="row">
                   <div className="column small-centered small-11 medium-6 large-5">
                     <div className="container">
                         <TodoSearch onSearch={this.handleSearch}  buttonClass={buttonClass}/>
                         <TodoList todos={filteredTodos} onToggle={this.handleToggle} onClick={this.handleDelete}/>
-                        <AddTodo onAddTodo={this.handleAddTodo}/>
+                        <MuiThemeProvider>
+                            <AddTodo onAddTodo={this.handleAddTodo} />
+                        </MuiThemeProvider>
                     </div>
                   </div>
 

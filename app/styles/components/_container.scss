@@ -37,6 +37,18 @@
 .container__footer {
     padding: 1rem 1rem 0 1rem;
     border-top: 1px solid $light-grey-border;
+    .add_field {
+        box-shadow: 0 !important;
+        background:inherit !important;
+        margin:0 !important;
+    }
+    .add_field input {
+        box-shadow: 0 !important;
+        padding:0.3rem !important;
+        &:focus {
+            box-shadow: 0 !important;
+        }
+    }
 }
 .todo-enter {
   height:0;
