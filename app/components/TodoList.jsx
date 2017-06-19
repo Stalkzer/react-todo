@@ -1,10 +1,11 @@
 var React = require("react"),
-    Todo  = require("Todo");
+    Todo  = require("Todo"),
+    TransitionGroup  = require('react-transition-group/CSSTransitionGroup'),
+    {TweenMax, Power2, TimelineLite} = require("gsap");
 
 
 var TodoList = React.createClass({
     render: function () {
-
         var {todos} = this.props;
 
         var renderTodos = () => {
@@ -19,8 +20,15 @@ var TodoList = React.createClass({
         };
         
         return (
-            <div>
-                {renderTodos()}
+            <div className="list_container">
+                <TransitionGroup
+                transitionName="todo"
+                transitionEnterTimeout={300}
+                transitionLeaveTimeout={300}
+                transitionAppear={true}
+                transitionAppearTimeout={300}>
+                    {renderTodos()}
+                </TransitionGroup>
             </div>
         )
     }
