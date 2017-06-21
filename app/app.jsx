@@ -4,13 +4,25 @@ var React           = require("react"),
     // ES6 Syntax
     {Route, Router, IndexRoute, hashHistory} = require("react-router");
 
-    var TodoApp = require("TodoApp");
-    //Load foundation
-    // require("style-loader!css-loader!foundation-sites/dist/foundation.min.css");
-    $(document).foundation();
+var TodoApp = require("TodoApp");
 
-    // App css
-    require("style-loader!css-loader!sass-loader!applicationStyles");
+var actions = require("actions");
+var store   = require("configureStore").configure();
+
+store.subscribe(() => {
+    console.log("New state", store.getState());
+});
+
+store.dispatch(actions.addTodo("Clean the house"));
+store.dispatch(actions.setSearchText("house"));
+store.dispatch(actions.toggleShowCompleted());
+
+//Load foundation
+// require("style-loader!css-loader!foundation-sites/dist/foundation.min.css");
+$(document).foundation();
+
+// App css
+require("style-loader!css-loader!sass-loader!applicationStyles");
 
 ReactDOM.render(
     <TodoApp/>,
