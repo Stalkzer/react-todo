@@ -14,10 +14,6 @@ store.subscribe(() => {
     console.log("New state", store.getState());
 });
 
-store.dispatch(actions.addTodo("Clean the house"));
-store.dispatch(actions.setSearchText("house"));
-store.dispatch(actions.toggleShowCompleted());
-
 //Load foundation
 // require("style-loader!css-loader!foundation-sites/dist/foundation.min.css");
 $(document).foundation();

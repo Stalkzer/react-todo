@@ -2,8 +2,8 @@ var React      = require("react"),
     uuid       = require("node-uuid"),
     moment     = require("moment");
 
-    import TodoList from "TodoList";
-    import AddTodo from "AddTodo";
+    import TodoList   from "TodoList";
+    import AddTodo    from "AddTodo";
     import TodoSearch from "TodoSearch";
 
     var TodoAPI    = require("TodoAPI");
@@ -48,14 +48,13 @@ var TodoApp = React.createClass({
     render: function (){
         var {todos, showCompleted, searchText} = this.state;
         var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
-        var buttonClass = showCompleted ? "" : "hollow show_inactif";
         return (
             <div >
                 <h1 className="page-title text-center"> Todo App </h1>
                 <div className="row">
                   <div className="column small-centered small-11 medium-6 large-5">
                     <div className="container">
-                        <TodoSearch onSearch={this.handleSearch}  buttonClass={buttonClass}/>
+                        <TodoSearch onSearch={this.handleSearch}/>
                         <TodoList/>
                         <AddTodo onAddTodo={this.handleAddTodo}/>
                     </div>
