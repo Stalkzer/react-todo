@@ -97,6 +97,19 @@ describe("TodoAPI", () => {
 
             expect(filteredTodos.length).toBe(3);
         });
+
+        it("should delete todo with given id", () => {
+            var todos = [{
+                id: 15,
+                text: "test all files",
+                completed: false
+            }];
+            localStorage.setItem("todos", JSON.stringify(todos));
+
+            var remainingTodos = TodoAPI.removeTodo(15);
+
+            expect(remainingTodos.length).toBe(0);
+        })
     });
     
 });

@@ -21,13 +21,8 @@ module.exports = {
         return $.isArray(todos) ? todos : [];
     },
     removeTodo: function (todoId) {
-        var myTodos = this.getTodos();
-        for(var i=myTodos.length-1; i>=0; i--) {
-            if( myTodos[i].id === todoId) {
-                myTodos.splice(i,1);
-                return myTodos;
-            } 
-        }
+        var todos = this.getTodos();
+        return todos.filter((todo) => todo.id !== todoId);
     },
     filterTodos: function (todos, showCompleted, searchText) {
         var filteredTodos = todos;

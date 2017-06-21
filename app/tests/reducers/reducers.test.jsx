@@ -1,6 +1,7 @@
 var expect   = require("expect"),
     reducers = require("reducers"),
-    df       = require("deep-freeze-strict");
+    df       = require("deep-freeze-strict"),
+    moment   = require("moment");
     
 
 describe("Reducers", () => {
@@ -24,5 +25,64 @@ describe("Reducers", () => {
             var res = reducers.showCompletedReducer(df(false), df(action));
             expect(res).toEqual(true);
         });
+    });
+    describe("todosReducer", () => {
+        it("should add new todo", () => {
+            var action = {
+                type: "ADD_TODO",
+                text: "Todo text"
+            };
+
+            var res = reducers.todosReducer(df([]), df(action));
+            expect(res.length).toEqual(1);
+            expect(res[0].text).toEqual(action.text);
+        });
+        it("should toggle todo", () => {
+            var todos = [
+                {
+                    id: 12,
+                    text: "Walk dog",
+                    completed: false,
+                    createdAt: 255,
+                    completedAt: undefined
+                }
+            ];
+
+            var action = {
+                type: "TOGGLE_TODO",
+                id: 12
+            };
+
+            var res = reducers.todosReducer(df(todos), df(action));
+            
+            expect(res[0].completed).toEqual(true);
+            expect(res[0].completedAt).toBeA("number");
+        });
+        it("should delete todo", () => {
+            var todos = [
+                {
+                    id: 15,
+                    text: "Feed cat",
+                    completed: true,
+                    createdAt: 150,
+                    completedAt: 168                  
+                },
+                {
+                    id: 25,
+                    text: "Wash car",
+                    completed: false,
+                    createdAt: 150,
+                    completedAt: 168                     
+                }
+            ];
+            var action = {
+                type: "REMOVE_TODO",
+                id: 15
+            }
+
+            var res = reducers.todosReducer(df(todos), df(action));
+
+            expect(res.length).toBe(1);
+        })
     });
 });
