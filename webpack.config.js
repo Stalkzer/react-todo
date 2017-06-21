@@ -40,7 +40,8 @@ module.exports = {
             "node_modules"
         ],
         alias: {
-            applicationStyles:path.resolve(__dirname, "app/styles/app.scss")
+            applicationStyles: path.resolve(__dirname, "app/styles/app.scss"),
+            actions: path.resolve(__dirname, "app/actions/actions")
         },
         extensions: [".js", ".jsx"]
     },
