@@ -1,10 +1,11 @@
 var React = require("react"),
-    Todo  = require("Todo"),
+    {connect} = require("react-redux"),
     TransitionGroup  = require('react-transition-group/CSSTransitionGroup'),
     {TweenMax, Power2, TimelineLite} = require("gsap");
+    
+import Todo from "Todo";
 
-
-var TodoList = React.createClass({
+export var TodoList = React.createClass({
     render: function () {
         var {todos} = this.props;
 
@@ -15,7 +16,7 @@ var TodoList = React.createClass({
                 );
             }
             return todos.map((todo) => {
-                return <Todo key={todo.id} {...todo}  onToggle={this.props.onToggle} onClick={this.props.onClick}/>
+                return <Todo key={todo.id} {...todo}/>
             });
         };
         
@@ -34,4 +35,10 @@ var TodoList = React.createClass({
     }
 });
 
-module.exports = TodoList;
+export default connect(
+    (state) => {
+        return {
+            todos: state.todos
+        };
+    }
+)(TodoList);

@@ -1,11 +1,14 @@
-var React = require("react");
+var React = require("react"),
+    {connect} = require("react-redux"),
+    actions = require("actions");
 
-var TodoSearch = React.createClass({
+export var TodoSearch = React.createClass({
     handleSearch: function () {
+        var {dispatch} = this.props;
         var showCompleted = this.refs.showCompleted.checked;
         var searchText = this.refs.searchText.value;
 
-        this.props.onSearch(showCompleted,searchText);
+        dispatch(actions.setSearchText(searchText));
     },
     render: function () {
         var {buttonClass} = this.props;
@@ -25,4 +28,4 @@ var TodoSearch = React.createClass({
     }
 });
 
-module.exports = TodoSearch;
+export default connect()(TodoSearch);

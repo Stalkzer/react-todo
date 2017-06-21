@@ -24,3 +24,10 @@ export var toggleTodo = (id) => {
         id
     };
 };
+
+export var removeTodo = (id) => {
+    return {
+        type: "REMOVE_TODO",
+        id
+    }
+}

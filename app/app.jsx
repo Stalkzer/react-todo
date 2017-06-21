@@ -1,5 +1,6 @@
 var React           = require("react"),
     ReactDOM        = require("react-dom"),
+    {Provider}      = require("react-redux"),
     // var Route = require('react-router').Route; OR DO IT LIKE BELOW
     // ES6 Syntax
     {Route, Router, IndexRoute, hashHistory} = require("react-router");
@@ -25,6 +26,9 @@ $(document).foundation();
 require("style-loader!css-loader!sass-loader!applicationStyles");
 
 ReactDOM.render(
-    <TodoApp/>,
+    // Provider (from react-redux) makes the components acces to the store / dispatch possible
+    <Provider store={store}>
+        <TodoApp/>
+    </Provider>,
     document.getElementById('app')
 );
