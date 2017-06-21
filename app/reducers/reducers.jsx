@@ -47,7 +47,11 @@ export var todosReducer = (state = [], action) => {
                     return todo;
                 }
             });
-        
+        case "ADD_TODOS":
+            return [
+                ...state,
+                ...action.todos
+            ];
         case "REMOVE_TODO": 
             return state.filter((todo) => todo.id !== action.id);
         default: 
