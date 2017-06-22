@@ -40,6 +40,7 @@ module.exports = {
             "node_modules"
         ],
         alias: {
+            app: path.resolve(__dirname,"app"),
             applicationStyles: path.resolve(__dirname, "app/styles/app.scss"),
             actions: path.resolve(__dirname, "app/actions/actions"),
             reducers: path.resolve(__dirname, "app/reducers/reducers"),

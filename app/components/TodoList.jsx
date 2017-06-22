@@ -6,6 +6,7 @@ var React = require("react"),
 
 import Todo from "Todo";
 
+
 export var TodoList = React.createClass({
     render: function () {
         var {todos, showCompleted, searchText} = this.props;
@@ -22,16 +23,18 @@ export var TodoList = React.createClass({
         };
         
         return (
-            <div className="list_container">
-                <TransitionGroup
-                transitionName="todo"
-                transitionEnterTimeout={300}
-                transitionLeaveTimeout={300}
-                transitionAppear={true}
-                transitionAppearTimeout={300}>
-                    {renderTodos()}
-                </TransitionGroup>
-            </div>
+                <div className="list_container">
+                        <TransitionGroup
+                            transitionName="todo"
+                            transitionEnterTimeout={300}
+                            transitionLeaveTimeout={300}
+                            transitionAppear={true}
+                            transitionAppearTimeout={300}>
+
+                            {renderTodos()}
+                            
+                        </TransitionGroup>
+                </div>
         )
     }
 });

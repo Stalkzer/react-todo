@@ -37,6 +37,12 @@
 .container__footer {
     padding: 1rem 1rem 0 1rem;
     border-top: 1px solid $light-grey-border;
+    button {
+        color:white !important;
+    }
+    label {
+        margin-left:8px;
+    }
 }
 .todo-enter {
   height:0;

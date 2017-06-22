@@ -9,7 +9,7 @@ var React      = require("react"),
 var TodoApp = React.createClass({
     render: function (){
         return (
-            <div >
+            <div>
                 <h1 className="page-title text-center"> Todo App </h1>
                 <div className="row">
                   <div className="column small-centered small-11 medium-6 large-5">
