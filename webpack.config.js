@@ -1,7 +1,8 @@
 var path = require("path");
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var webpack = require("webpack");
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+process.env.NODE_ENV = process.env.NODE_ENV || "development";
 
 module.exports = {
     entry: [
@@ -17,7 +18,11 @@ module.exports = {
             $: "jquery",
             jQuery:"jquery"
         }),
-        //new UglifyJSPlugin()
+        new webpack.optimize.UglifyJsPlugin({
+            compressor: {
+                warnings: false
+            }
+        }),
         new webpack.LoaderOptionsPlugin({
             options: {
                 context: '/', 
@@ -66,5 +71,5 @@ module.exports = {
             }
         ]
     },
-    devtool: "inline-source-map"
+    devtool: process.env.NODE_ENV === "production" ? undefined : "inline-source-map"
 };

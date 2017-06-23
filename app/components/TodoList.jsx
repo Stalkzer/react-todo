@@ -1,7 +1,6 @@
 var React = require("react"),
     {connect} = require("react-redux"),
     TransitionGroup  = require('react-transition-group/CSSTransitionGroup'),
-    {TweenMax, Power2, TimelineLite} = require("gsap"),
     TodoAPI = require("TodoAPI");
 
 import Todo from "Todo";
