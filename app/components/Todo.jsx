@@ -31,7 +31,7 @@ export var Todo = React.createClass({
                     <p className="todo__subtext">{renderDate()}</p>
                 </div>
                 <div>
-                    <p className="hollow button alert small" onClick={() => {dispatch(actions.removeTodo(id))}}> X </p>
+                    <p className="hollow button alert small" onClick={() => {dispatch(actions.startRemoveTodo(id))}}> X </p>
                 </div>
             </div>
         )
