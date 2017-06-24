@@ -115,6 +115,23 @@ describe("Reducers", () => {
             expect(res[0]).toEqual(todos[0]);
 
         });
+
+        it("should clear todos on logout", () => {
+            var todos = [{
+                id: "111",
+                text: "random",
+                completed: false,
+                completedAt: undefined,
+                createdAt: 54464
+            }];
+            var action = {
+                type: "LOGOUT"
+            };
+
+            var res = reducers.todosReducer(df(todos), df(action));
+        
+            expect(res.length).toEqual(0);
+        })
     });
 
     describe("authReducer", () => {

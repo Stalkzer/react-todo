@@ -45,6 +45,8 @@ export var todosReducer = (state = [], action) => {
             ];
         case "REMOVE_TODO": 
             return state.filter((todo) => todo.id !== action.id);
+        case "LOGOUT": 
+            return [];
         default: 
             return state;
     };
